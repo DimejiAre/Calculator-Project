@@ -1,5 +1,6 @@
 body {
     background-color: #818181;
+    font-family: 'Orbitron', sans-serif !important;
 }
 
 .calc_frame {
@@ -13,7 +14,7 @@ body {
 }
 
 .title {
-    font-family: Georgia;
+    /*font-family: Georgia;*/
     text-transform: uppercase;
     text-align: center;
 }
@@ -25,7 +26,19 @@ body {
     width: 85%;
     height: 50px;
     margin: 10px auto;
-    padding: 5px auto;
+    padding: 0 5px;
+    
+}
+
+#bigNum {
+    font-size: 26px;
+    margin-bottom: 5px;
+    height: 28px;
+    
+}
+
+#smallNum {
+    font-size: 12px;
 }
 
 .btn-custom {
