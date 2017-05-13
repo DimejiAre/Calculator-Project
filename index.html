@@ -48,7 +48,7 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-xs-8"><button class="btn-custom btn-long" id="0" onclick="displayNumber(0)">0</button></div>
-                    <div class="col-xs-4"><button class="btn-custom" id="dot">.</button></div>
+                    <div class="col-xs-4"><button class="btn-custom" id="dot" onclick="displayNumber('.')">.</button></div>
                 </div>
             </div>
             <div class="col-xs-3"><button class="btn-custom btn-tall" id="equals">=</button></div>
@@ -80,6 +80,13 @@
             document.getElementById('bigNum').innerHTML = resultText;
             document.getElementById('smallNum').innerHTML = result;
             resultText = '';
+        }
+        else if(value ==="."){
+            resultText += value;
+            result += value;
+            document.getElementById('bigNum').innerHTML = resultText;
+            document.getElementById('smallNum').innerHTML = result;
+
         }
         else{
         console.log(value);
