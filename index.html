@@ -63,8 +63,9 @@
         var resultText = '';
         var num1 = 0;
         var num2 = 0;
-        var ans = 0;
+        var ans = undefined;
         var count = 0;
+        var o = operations();
         function displayNumber(value) {
             //for AC anc CE buttons
             if (value === undefined) {
@@ -75,34 +76,33 @@
                 document.getElementById('smallNum').innerHTML = result;
                 result = '';
             }
-            //for division button
             else if (value === "/") {
                 if (count != 0) {
-                    num2 = parseInt(resultText);
+                    num2 = parseFloat(resultText);
                     if (operator == "+") {
-                        var o = operations();
+
                         console.log("numbers");
                         console.log(num1, num2);
                         resultText = o.add(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "-") {
-                        var o = operations();
+
                         resultText = o.subtract(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "x") {
-                        var o = operations();
+
                         resultText = o.multiply(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "/") {
-                        var o = operations();
+
                         resultText = o.divide(num1, num2);
                         result = resultText;
                     }
 
-                    ans = parseInt(resultText);
+                    ans = parseFloat(resultText);
                     console.log("answer");
                     console.log(ans);
                     document.getElementById('bigNum').innerHTML = resultText;
@@ -111,49 +111,49 @@
                     // resultText = '';                   
                 }
 
-                if (ans !== 0) {
+                if (ans !== undefined) {
                     num1 = ans;
                 }
                 else {
-                    num1 = parseInt(resultText);
+                    num1 = parseFloat(resultText);
                 }
-                    operator = "/";
-                    count++;
-                    resultText = value;
-                    result += value;
-                    document.getElementById('bigNum').innerHTML = resultText;
-                    document.getElementById('smallNum').innerHTML = result;
-                    resultText = '';
-                
+                operator = "/";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
             }
             //for multiplication button
             else if (value === "x") {
                 if (count != 0) {
-                    num2 = parseInt(resultText);
+                    num2 = parseFloat(resultText);
                     if (operator == "+") {
-                        var o = operations();
+
                         console.log("numbers");
                         console.log(num1, num2);
                         resultText = o.add(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "-") {
-                        var o = operations();
+
                         resultText = o.subtract(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "x") {
-                        var o = operations();
+
                         resultText = o.multiply(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "/") {
-                        var o = operations();
+
                         resultText = o.divide(num1, num2);
                         result = resultText;
                     }
 
-                    ans = parseInt(resultText);
+                    ans = parseFloat(resultText);
                     console.log("answer");
                     console.log(ans);
                     document.getElementById('bigNum').innerHTML = resultText;
@@ -162,49 +162,49 @@
                     // resultText = '';                   
                 }
 
-                if (ans !== 0) {
+                if (ans !== undefined) {
                     num1 = ans;
                 }
                 else {
-                    num1 = parseInt(resultText);
+                    num1 = parseFloat(resultText);
                 }
-                    operator = "x";
-                    count++;
-                    resultText = value;
-                    result += value;
-                    document.getElementById('bigNum').innerHTML = resultText;
-                    document.getElementById('smallNum').innerHTML = result;
-                    resultText = '';
-                
+                operator = "x";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
             }
             //for addition button
             else if (value === "+") {
                 if (count != 0) {
-                    num2 = parseInt(resultText);
+                    num2 = parseFloat(resultText);
                     if (operator == "+") {
-                        var o = operations();
+
                         console.log("numbers");
                         console.log(num1, num2);
                         resultText = o.add(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "-") {
-                        var o = operations();
+
                         resultText = o.subtract(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "x") {
-                        var o = operations();
+
                         resultText = o.multiply(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "/") {
-                        var o = operations();
+
                         resultText = o.divide(num1, num2);
                         result = resultText;
                     }
 
-                    ans = parseInt(resultText);
+                    ans = parseFloat(resultText);
                     console.log("answer");
                     console.log(ans);
                     document.getElementById('bigNum').innerHTML = resultText;
@@ -212,51 +212,51 @@
                     // result = '';
                     // resultText = '';
 
-                    
+
                 }
-                    if (ans !== 0) {
-                        num1 = ans;
-                    }
-                    else {
-                        num1 = parseInt(resultText);
-                    }
-                    operator = "+";
-                    count++;
-                    resultText = value;
-                    result += value;
-                    document.getElementById('bigNum').innerHTML = resultText;
-                    document.getElementById('smallNum').innerHTML = result;
-                    resultText = '';
-                
+                if (ans !== undefined) {
+                    num1 = ans;
+                }
+                else {
+                    num1 = parseFloat(resultText);
+                }
+                operator = "+";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
             }
             //for subtraction button
             else if (value === "-") {
                 if (count != 0) {
-                    num2 = parseInt(resultText);
+                    num2 = parseFloat(resultText);
                     if (operator == "+") {
-                        var o = operations();
+
                         console.log("numbers");
                         console.log(num1, num2);
                         resultText = o.add(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "-") {
-                        var o = operations();
+
                         resultText = o.subtract(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "x") {
-                        var o = operations();
+
                         resultText = o.multiply(num1, num2);
                         result = resultText;
                     }
                     else if (operator == "/") {
-                        var o = operations();
+
                         resultText = o.divide(num1, num2);
                         result = resultText;
                     }
 
-                    ans = parseInt(resultText);
+                    ans = parseFloat(resultText);
                     console.log("answer");
                     console.log(ans);
                     document.getElementById('bigNum').innerHTML = resultText;
@@ -265,20 +265,20 @@
                     // resultText = '';                    
                 }
 
-                if (ans !== 0) {
+                if (ans !== undefined) {
                     num1 = ans;
                 }
                 else {
-                    num1 = parseInt(resultText);
+                    num1 = parseFloat(resultText);
                 }
-                    operator = "-";
-                    count++;
-                    resultText = value;
-                    result += value;
-                    document.getElementById('bigNum').innerHTML = resultText;
-                    document.getElementById('smallNum').innerHTML = result;
-                    resultText = '';
-                
+                operator = "-";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
             }
             //for decimal button
             else if (value === ".") {
@@ -290,31 +290,31 @@
             }
             //for equal to button
             else if (value === "=") {
-                num2 = parseInt(resultText);
+                num2 = parseFloat(resultText);
                 if (operator == "+") {
-                    var o = operations();
+
                     console.log("numbers");
                     console.log(num1, num2);
                     resultText = o.add(num1, num2);
                     result = resultText;
                 }
                 else if (operator == "-") {
-                    var o = operations();
+
                     resultText = o.subtract(num1, num2);
                     result = resultText;
                 }
                 else if (operator == "x") {
-                    var o = operations();
+
                     resultText = o.multiply(num1, num2);
                     result = resultText;
                 }
                 else if (operator == "/") {
-                    var o = operations();
+
                     resultText = o.divide(num1, num2);
                     result = resultText;
                 }
 
-                ans = parseInt(resultText);
+                ans = parseFloat(resultText);
                 count = 0;
                 console.log("answer");
                 console.log(ans);
@@ -326,7 +326,7 @@
             }
             //for all Number buttons
             else {
-                ans = 0;
+                ans = undefined;
                 resultText += value;
                 result += value;
                 //$('#bigNum').val(value);
