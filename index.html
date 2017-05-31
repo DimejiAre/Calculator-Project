@@ -51,54 +51,290 @@
                     <div class="col-xs-4"><button class="btn-custom" id="dot" onclick="displayNumber('.')">.</button></div>
                 </div>
             </div>
-            <div class="col-xs-3"><button class="btn-custom btn-tall" id="equals">=</button></div>
+            <div class="col-xs-3"><button class="btn-custom btn-tall" id="equals" onclick="displayNumber('=')">=</button></div>
         </div>
         <!--end of fourth column-->
     </div>
     <!--end of calc_frame-->
-<script src="js/operations.js" type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-    var result = '';
-    var resultText = '';
-    var num1 = 0;
-    var num2 = 0;
-    function displayNumber(value){
-        console.log(value);
-        if(value === undefined){
-            result = '0';
-            resultText = ''
-            document.getElementById('bigNum').innerHTML = result;
-            document.getElementById('smallNum').innerHTML = result;
-            result = '';
+    <script src="js/operations.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var result = '';
+        var resultText = '';
+        var num1 = 0;
+        var num2 = 0;
+        var ans = undefined;
+        var count = 0;
+        var o = operations();
+        function displayNumber(value) {
+            //for AC anc CE buttons
+            if (value === undefined) {
+                result = '0';
+                resultText = ''
+                count = 0;
+                document.getElementById('bigNum').innerHTML = result;
+                document.getElementById('smallNum').innerHTML = result;
+                result = '';
+            }
+            else if (value === "/") {
+                if (count != 0) {
+                    num2 = parseFloat(resultText);
+                    if (operator == "+") {
+
+                        console.log("numbers");
+                        console.log(num1, num2);
+                        resultText = o.add(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "-") {
+
+                        resultText = o.subtract(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "x") {
+
+                        resultText = o.multiply(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "/") {
+
+                        resultText = o.divide(num1, num2);
+                        result = resultText;
+                    }
+
+                    ans = parseFloat(resultText);
+                    console.log("answer");
+                    console.log(ans);
+                    document.getElementById('bigNum').innerHTML = resultText;
+                    document.getElementById('smallNum').innerHTML = result;
+                    // result = '';
+                    // resultText = '';                   
+                }
+
+                if (ans !== undefined) {
+                    num1 = ans;
+                }
+                else {
+                    num1 = parseFloat(resultText);
+                }
+                operator = "/";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
+            }
+            //for multiplication button
+            else if (value === "x") {
+                if (count != 0) {
+                    num2 = parseFloat(resultText);
+                    if (operator == "+") {
+
+                        console.log("numbers");
+                        console.log(num1, num2);
+                        resultText = o.add(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "-") {
+
+                        resultText = o.subtract(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "x") {
+
+                        resultText = o.multiply(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "/") {
+
+                        resultText = o.divide(num1, num2);
+                        result = resultText;
+                    }
+
+                    ans = parseFloat(resultText);
+                    console.log("answer");
+                    console.log(ans);
+                    document.getElementById('bigNum').innerHTML = resultText;
+                    document.getElementById('smallNum').innerHTML = result;
+                    // result = '';
+                    // resultText = '';                   
+                }
+
+                if (ans !== undefined) {
+                    num1 = ans;
+                }
+                else {
+                    num1 = parseFloat(resultText);
+                }
+                operator = "x";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
+            }
+            //for addition button
+            else if (value === "+") {
+                if (count != 0) {
+                    num2 = parseFloat(resultText);
+                    if (operator == "+") {
+
+                        console.log("numbers");
+                        console.log(num1, num2);
+                        resultText = o.add(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "-") {
+
+                        resultText = o.subtract(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "x") {
+
+                        resultText = o.multiply(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "/") {
+
+                        resultText = o.divide(num1, num2);
+                        result = resultText;
+                    }
+
+                    ans = parseFloat(resultText);
+                    console.log("answer");
+                    console.log(ans);
+                    document.getElementById('bigNum').innerHTML = resultText;
+                    document.getElementById('smallNum').innerHTML = result;
+                    // result = '';
+                    // resultText = '';
+
+
+                }
+                if (ans !== undefined) {
+                    num1 = ans;
+                }
+                else {
+                    num1 = parseFloat(resultText);
+                }
+                operator = "+";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
+            }
+            //for subtraction button
+            else if (value === "-") {
+                if (count != 0) {
+                    num2 = parseFloat(resultText);
+                    if (operator == "+") {
+
+                        console.log("numbers");
+                        console.log(num1, num2);
+                        resultText = o.add(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "-") {
+
+                        resultText = o.subtract(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "x") {
+
+                        resultText = o.multiply(num1, num2);
+                        result = resultText;
+                    }
+                    else if (operator == "/") {
+
+                        resultText = o.divide(num1, num2);
+                        result = resultText;
+                    }
+
+                    ans = parseFloat(resultText);
+                    console.log("answer");
+                    console.log(ans);
+                    document.getElementById('bigNum').innerHTML = resultText;
+                    document.getElementById('smallNum').innerHTML = result;
+                    // result = '';
+                    // resultText = '';                    
+                }
+
+                if (ans !== undefined) {
+                    num1 = ans;
+                }
+                else {
+                    num1 = parseFloat(resultText);
+                }
+                operator = "-";
+                count++;
+                resultText = value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                resultText = '';
+
+            }
+            //for decimal button
+            else if (value === ".") {
+                resultText += value;
+                result += value;
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                //unfinished
+            }
+            //for equal to button
+            else if (value === "=") {
+                num2 = parseFloat(resultText);
+                if (operator == "+") {
+
+                    console.log("numbers");
+                    console.log(num1, num2);
+                    resultText = o.add(num1, num2);
+                    result = resultText;
+                }
+                else if (operator == "-") {
+
+                    resultText = o.subtract(num1, num2);
+                    result = resultText;
+                }
+                else if (operator == "x") {
+
+                    resultText = o.multiply(num1, num2);
+                    result = resultText;
+                }
+                else if (operator == "/") {
+
+                    resultText = o.divide(num1, num2);
+                    result = resultText;
+                }
+
+                ans = parseFloat(resultText);
+                count = 0;
+                console.log("answer");
+                console.log(ans);
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+                result = '';
+                resultText = '';
+
+            }
+            //for all Number buttons
+            else {
+                ans = undefined;
+                resultText += value;
+                result += value;
+                //$('#bigNum').val(value);
+                document.getElementById('bigNum').innerHTML = resultText;
+                document.getElementById('smallNum').innerHTML = result;
+            }
         }
-        else if(value === "/" || value === "x" || value === "+" || value === "-"){
-            num1 = parseInt(resultText);
-            operator = "+";
-            resultText = value;
-            result += value;
-            document.getElementById('bigNum').innerHTML = resultText;
-            document.getElementById('smallNum').innerHTML = result;
-            resultText = '';
-        }
-        else if(value ==="."){
-            resultText += value;
-            result += value;
-            document.getElementById('bigNum').innerHTML = resultText;
-            document.getElementById('smallNum').innerHTML = result;
-            //unfinished
-        }
-        else{
-        console.log(value);
-        resultText += value;
-        result += value;
-        console.log(typeof(value));
-        //$('#bigNum').val(value);
-        document.getElementById('bigNum').innerHTML = resultText;
-        document.getElementById('smallNum').innerHTML = result;
-        }
-    }
-</script>
+    </script>
 
 </body>
 
